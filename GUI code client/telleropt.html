@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <style>
+        body {background-color: #DB7093;}
+        h1   {color: black;}
+  			.error{
+					  margin: 10px 52px 10px 0;
+					  margin-top:130px;
+            text-align: center;
+					  padding-left:500px; 
+			
+					  font-size: 22px;
+					  font-weight: bold
+   				 }
+
+  			
+
+				 				 
+      </style>
+
+    </head>
+
+    <body>
+
+       
+       
+        {% if error %}
+              <p class="error"><strong>Error!</strong> {{ error }}</p>
+        {% endif %}
+        {% if choice == "Access Customer Account" %}
+              <form action="" method="post">
+              
+                  <label for="customer ID"> Customer ID </label>
+                      <input type='text' placeholder="Customer ID" name="Customer_ID" value="{{ request.form.Customer_ID }}">
+              
+              </form>
+              <p class="Customer ID"><strong>Customer ID</strong>{{ response_dict['customer_id'] }}</p>
+              <p class="check account"><strong>Checking Account </strong> {{ response_dict['chk_acct'] }}</p>
+              <p class="check bal"><strong>Checking Balance</strong> {{ response_dict['chk_bal'] }}</p>
+              <p class="save account"><strong>Saving Account</strong> {{ response_dict['sav_acct'] }}</p>
+              <p class="save bal"><strong>Saving Balance</strong> {{ response_dict['sav_bal'] }}</p>
+              <p class="Transaction List"><strong>Transactions of Customer</strong> {{ transaction_dict['trns_list'] }}</p>
+              
+          {% endif %}
+        {% if choice == "Update Customer Account" %}
+              <form action="" method="post">
+                
+                <label for="Checking/Saving "> Checking/Saving </label>
+                  <input type='text' placeholder="Checking/Saving" name="checksave" value="{{ request.form.checksave }}">
+                <label for="To Bank Account Number"> To Bank Account Number </label>
+                  <input type='text' placeholder="To Bank Account Number" name="tobankaccountnumber" value="{{ request.form.tobankaccountnumber }}">
+                <label for="Withdraw/Deposit"> Withdraw/Deposit </label>
+                  <input type='text' placeholder="Withdraw/Deposit" name="withdep" value="{{ request.form.withdep }}">
+                <label for="Customer_ID"> Customer_ID </label>
+                  <input type='text' placeholder="Customer_ID" name="Customer_ID" value="{{ request.form.Customer_ID }}">
+               
+                <br>
+                <label for="Amount"> Amount </label>
+                  <input type='text' placeholder="Amount" name="Amount" value="{{ request.form.Amount }}">
+                <br>
+                  <input type='submit' value="Send Money" >
+              </form>
+              <p class="Print"><strong> Customer ID </strong> {{ response_dict['customer_id'] }}</p>
+              <p class="Print"><strong> Checking Account </strong>{{ response_dict['chk_acct'] }}</p>
+              <p class="Print"><strong> Checking Account Balance </strong> {{ response_dict['chk_bal'] }}  </p>
+              <p class="Print"><strong> Saving Account </strong>{{ response_dict['sav_acct'] }}</p>
+              <p class="Print"><strong> Saving Account Balance </strong>{{ response_dict['sav_bal'] }}</p>
+        {% endif %}
+        {% if choice == "Create Customer Account" %}
+              <div class='container'>
+                  <h1>Login Page</h1>
+                
+                
+              <br>
+              <form action="" method="post">
+                <label for="customer ID"> Customer ID </label>
+                <input type='text' placeholder="Customer ID" name="Customer_ID" value="{{ request.form.Customer_ID }}">
+                <label for="username"> Username </label>
+                <input type='text' placeholder="Username" name="username" value="{{ request.form.username }}">
+                <label for="password"> Password </label>
+                <input type='password' placeholder="Password" name="password" value="{{ request.form.password }}">
+                <br>
+                           
+              </form>
+              <h1>Account Record</h1>
+              <br>
+              <form action="" method="post">
+                <label for="Checking Balance"> Checking Balance </label>
+                <input type='text' placeholder="Checking Balance" name="checkbal" value="{{ request.form.checkbal }}">
+                <label for="Saving Balance"> Saving Balance </label>
+                  <input type='text' placeholder="Saving Balance" name="savbal" value="{{ request.form.savbal }}">
+                 <label for="Checking Account"> Checking Account </label>
+                <input type='text' placeholder="Checking Account" name="checkacct" value="{{ request.form.checkacct }}">
+                <label for="Saving Account"> Saving Account </label>
+                  <input type='text' placeholder="Saving Account" name="savcct" value="{{ request.form.savacct }}">
+                <br>
+              </form>
+                <h1>Customer Details</h1>
+              <form action="" method="post">
+
+                <label for="Last Name"> Last Name </label>
+                <input type='text' placeholder="Last Name" name="Last_name" value="{{ request.form.Last_name }}">
+                <br>
+                <label for="Last Name"> First Name </label>
+                <input type='text' placeholder="First Name" name="First_name" value="{{ request.form.First_name }}">
+                <br>
+                <label for="Date Of Birth"> Date Of Birth </label>
+                  <input type='text' placeholder="Date Of Birth" name="dob" value="{{ request.form.dob }}">
+                <br>
+                 <label for="Email"> Email </label>
+                <input type='text' placeholder="Email" name="Email" value="{{ request.form.Email }}">
+                <br>
+                <label for="Phone number"> Phone number </label>
+                  <input type='text' placeholder="Phone number" name="phnum" value="{{ request.form.phnum }}">
+                <br>
+                  <label for="Apt number">Apt number</label>
+                <input type='text' placeholder="Apt number" name="Aptnumber" value="{{ request.form.Aptnumber}}">
+                <br>
+                <label for="Street num"> Street num </label>
+                  <input type='text' placeholder="Street num" name="stnum" value="{{ request.form.stnum }}">
+                <br>
+                 <label for="City"> City </label>
+                <input type='text' placeholder="City" name="City" value="{{ request.form.City }}">
+                <br>
+                <label for="State"> State </label>
+                <input type='text' placeholder="State" name="State" value="{{ request.form.State }}">
+                <br>
+                <label for="Country"> Country </label>
+                <input type='text' placeholder="Country" name="Country" value="{{ request.form.Country }}">
+                <br>
+                <label for="Zipcode"> Zipcode </label>
+                <input type='text' placeholder="Zipcode" name="Zipcode" value="{{ request.form.Zipcode }}">
+                <br>
+                <label for="Gender"> Gender </label>
+                <input type='text' placeholder="Gender" name="Gender" value="{{ request.form.Gender }}">
+                <br>
+                <input type='submit' value="Create" > 
+                <br>
+              </form>
+              
+
+                         
+              
+              
+            </div>
+
+              
+        {% endif %}
+        {% if choice == "Delete Customer Account" %}
+            <form action="" method="post">
+                <label for="Customer_ID"> Customer_ID </label>
+                  <input type='text' placeholder="Customer_ID" name="Customer_ID" value="{{ request.form.Customer_ID }}">
+                
+                <br>
+                <input type='submit' value="Delete" > 
+
+              </form>
+
+        {% endif %}
+            
+
+            
+            
+            
+            
+          
+
+
+    </body>
+        
+
+</html>

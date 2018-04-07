@@ -1,0 +1,61 @@
+-- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+--
+-- Host: localhost    Database: Bank
+-- ------------------------------------------------------
+-- Server version	5.7.20-0ubuntu0.16.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `CUSTOMER_INFO_TABLE`
+--
+
+DROP TABLE IF EXISTS `CUSTOMER_INFO_TABLE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CUSTOMER_INFO_TABLE` (
+  `CUSTOMER_ID` int(12) NOT NULL,
+  `FIRST_NAME` varchar(45) DEFAULT NULL,
+  `LAST_NAME` varchar(45) DEFAULT NULL,
+  `DATE_OF_BIRTH` varchar(45) DEFAULT NULL,
+  `EMAIL_ID` varchar(45) DEFAULT NULL,
+  `PHONE_NUMBER` varchar(45) DEFAULT NULL,
+  `APT_NUM` varchar(45) DEFAULT NULL,
+  `STREET_NAME` varchar(45) DEFAULT NULL,
+  `CITY` varchar(45) DEFAULT NULL,
+  `STATE` varchar(45) DEFAULT NULL,
+  `COUNTRY` varchar(45) DEFAULT NULL,
+  `ZIPCODE` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`CUSTOMER_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CUSTOMER_INFO_TABLE`
+--
+
+LOCK TABLES `CUSTOMER_INFO_TABLE` WRITE;
+/*!40000 ALTER TABLE `CUSTOMER_INFO_TABLE` DISABLE KEYS */;
+INSERT INTO `CUSTOMER_INFO_TABLE` VALUES (1111111112,'shiny','watson','09-09-1990','shinywatson@yahoo.com','94000000','756','Wendover Dr','Sanjose','CA','USA','28459'),(1111111113,'Usha','Veguru','03-12-1982','usha.veguru@gmail.com','90000000','322','Taylors St','Sanjose','CA','USA','98888'),(1111111114,'Gnanadeep','pallela','04-07-1995','pallela.gnanadeep@gmail.com','98989898','999','NorthFirst St','Sanjose','CA','USA','95674'),(1276981930,'Ryan','Matt','04/05/1975','matt.ryan@yahoo.com','4545454444','309','Collonade','Sanjose','CA','USA','97678'),(1960466268,'Bob','Lewis','08/10/1970','bob.lewis@hotmail.com','787878787','23','Paddington St','Salina','Kansas','USA','67565'),(1999884910,'Tom','Brady','12/03/1975','tom.brady@gmail.com','7777777777','345','4th St','Sanjose','CA','USA','96788');
+/*!40000 ALTER TABLE `CUSTOMER_INFO_TABLE` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-11-19 17:32:43

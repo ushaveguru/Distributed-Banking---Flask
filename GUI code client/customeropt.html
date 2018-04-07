@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <style>
+        body {background-color: #DB7093;}
+        h1   {color: black;}
+  			.error{
+					  margin: 10px 52px 10px 0;
+					  margin-top:130px;
+            text-align: center;
+					  padding-left:500px; 
+			
+					  font-size: 22px;
+					  font-weight: bold
+   				 }
+
+  			.check{
+					  padding-left:500px; 
+
+            text-align: center;
+					  font-size: 22px;
+					  font-weight: bold
+   				 }	
+  			.save{
+
+					  padding-left:500px;   
+            text-align: center;
+					  font-size: 22px;
+					  font-weight: bold
+   				 }
+
+				 				 
+      </style>
+
+    </head>
+
+    <body>
+
+      <!-- <div class='container'> -->
+  <!--       <h1>Login Page</h1>
+        <br>
+        <form action="" method="post">
+          <label for="username"> Username </label>
+          <input type='text' placeholder="Username" name="username" value="{{ request.form.username }}">
+          <label for="password"> Password </label>
+          <input type='password' placeholder="Password" name="password" value="{{ request.form.password }}">
+          <br>
+          <input type='submit' value="Login" >
+        </form> -->
+        {% if error %}
+              <p class="error"><strong>Error!</strong> {{ error }}</p>
+        {% endif %}
+        {% if choice == "Checking and Savings account" %}
+              <p class="check account"><strong>Checking Account</strong>{{ response_dict['chk_acct'] }}</p>
+              <p class="check bal"><strong>Checking Balance</strong> {{ response_dict['chk_bal'] }}</p>
+              <p class="save account"><strong>Saving Account</strong> {{ response_dict['sav_acct'] }}</p>
+              <p class="save bal"><strong>Saving Balance</strong> {{ response_dict['sav_bal'] }}</p>
+        {% endif %}
+        {% if choice == "Profile" %}
+             
+              <p class="Print"><strong> Customer ID </strong> {{ response_dict['customer_id'] }}</p>
+              <p class="Print"><strong> First Name </strong>{{ response_dict['first_name'] }}</p>
+              <p class="Print"><strong> Last Name </strong> {{ response_dict['last_name'] }}  </p>
+              <p class="Print"><strong> Checking Account </strong>{{ response_dict['chk_acct'] }}</p>
+              <p class="Print"><strong> Checking Account Balance </strong>{{ response_dict['chk_bal'] }}</p>
+              <p class="Print"><strong> Savings Account </strong>{{ response_dict['sav_acct'] }}</p>
+              <p class="Print"><strong> Savings Balance </strong>{{ response_dict['sav_bal'] }}</p>
+              <p class="Print"><strong> Date of Birth </strong>{{ response_dict['DOB'] }}</p>
+              <p class="Print"><strong> Phone Number </strong>{{ response_dict['phone'] }}</p>
+              <p class="Print"><strong> Address </strong>{{ response_dict['address'] }}</p>
+              <p class="Print"><strong> Mail ID </strong>{{ response_dict['email'] }}</p>
+               
+            
+                  
+        {% endif %}
+        {% if choice == "Transfer Funds" %}
+         <form action="" method="post">
+            <label for="Bank Name"> Bank Name </label>
+              <input type='text' placeholder="Bank Name" name="bankname" value="{{ request.form.bankname }}">
+            <label for="Checking/Saving "> Checking/Saving </label>
+              <input type='text' placeholder="Checking/Saving" name="checksave" value="{{ request.form.checksave }}">
+            <label for="To Bank Account Number"> To Bank Account Number </label>
+              <input type='text' placeholder="To Bank Account Number" name="tobankaccountnumber" value="{{ request.form.tobankaccountnumber }}">
+            <label for="From Bank Account Number"> From Bank Account Number </label>
+              <input type='text' placeholder="From Bank Account Number" name="frombankaccountnumber" value="{{ request.form.frombankaccountnumber }}">
+            <br>
+            <label for="Amount"> Amount </label>
+              <input type='text' placeholder="Amount" name="Amount" value="{{ request.form.Amount }}">
+            <br>
+              <input type='submit' value="Send Money" >
+        </form>
+              <p class="Print"><strong> Customer ID </strong> {{ response_dict['customer_id'] }}</p>
+              <p class="Print"><strong> Checking Account </strong>{{ response_dict['chk_acct'] }}</p>
+              <p class="Print"><strong> Checking Account Balance </strong> {{ response_dict['chk_bal'] }}  </p>
+              <p class="Print"><strong> Saving Account </strong>{{ response_dict['sav_acct'] }}</p>
+              <p class="Print"><strong> Saving Account Balance </strong>{{ response_dict['sav_bal'] }}</p>
+              
+        {% endif %}
+         {% if choice == "Withdrawal" %}
+              <p class="error"><strong>Notice:</strong> {{ error }}</p>
+        {% endif %}
+         {% if choice == "Deposit" %}
+              <p class="error"><strong>Notice:</strong> {{ error }}</p>
+        {% endif %}
+        {% if choice == "Monthly Statements" %}
+              
+        
+             <form action="" method="post">
+                <label for="Customer_ID"> Customer_ID </label>
+                  <input type='text' placeholder="Customer_ID" name="Customer_ID" value="{{ request.form.Customer_ID }}">
+                
+                <br>
+                <input type='submit' value="Create" > 
+
+              </form>
+        {% endif %}
+            
+            
+            
+            
+          
+
+
+    </body>
+        
+      <!-- </div> -->
+<!-- 	<head>
+		<form method="get">
+      <body>
+      <script type="text/javascipt">
+        document.write("<h1>Hello World!</h1><p>Have a nice day!</p>");
+        var choice = {{ choice }} ;
+        var response_dict = {{ response_dict }};
+        document.write('Hello World!');
+
+ 
+        if (choice == "Checking and Savings account") 
+        {
+          var status = response_dict['status'];
+          if status == 'SUCCESS'{
+            var account_number = {{ response_dict['chk_acct'] }};
+            var balance = {{ response_dict['chk_bal'] }};
+            var account_number_sav = {{ response_dict['sav_acct'] }};
+            var balance_sav = {{ response_dict['sav_bal'] }};
+            var customer_id = {{ response_dict['customer_id'] }};
+            document.write("Customer ID " + customer_id.toString());
+            document.write("Checking Account ");
+            document.write("Account " + account_number.toString());
+            document.write("Balance " + "$" + balance.toString());
+            document.write("Savings Account ");
+            document.write("Account " + account_number_sav.toString());
+            document.write("Balance " + "$" + balance_sav.toString());}
+        }
+      </script> 
+      </body>    	
+    	</form>	
+		
+	</head>
+  <body>
+
+  </body> -->
+</html>
